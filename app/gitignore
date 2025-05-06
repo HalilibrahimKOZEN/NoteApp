@@ -1,0 +1,11 @@
+.gradle
+/.idea/
+/build
+/captures
+.DS_Store
+local.properties
+*.iml
+.kotlin_build_cache/
+/app/build/outputs/apk/debug/
+/app/build/outputs/apk/release/
+/app/build/intermediates/
