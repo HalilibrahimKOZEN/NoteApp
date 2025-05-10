@@ -51,6 +51,6 @@ dependencies {
     implementation(libs.androidx.cardview)
 
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler) // Kotlin Annotation Processing Tool
-    implementation(libs.androidx.room.ktx) // Kotlin Coroutines desteği (isteğe bağlı ama önerilir)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }

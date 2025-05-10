@@ -3,6 +3,8 @@ package com.example.noteapp
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
@@ -11,8 +13,10 @@ class EditNoteActivity : AppCompatActivity() {
 
     private lateinit var editTextTitle: EditText
     private lateinit var editTextContent: EditText
+    private lateinit var editTextTags: EditText
     private lateinit var buttonSave: Button
     private lateinit var buttonDelete: Button
+    private lateinit var btnBack: ImageView
     private lateinit var noteDao: NoteDao
     private var noteId: Int = -1
 
@@ -22,8 +26,10 @@ class EditNoteActivity : AppCompatActivity() {
 
         editTextTitle = findViewById(R.id.editTextTitle)
         editTextContent = findViewById(R.id.editTextContent)
+        editTextTags = findViewById(R.id.editTextTags)
         buttonSave = findViewById(R.id.buttonSave)
-        buttonDelete = findViewById(R.id.buttonDelete) // Sil butonuna referans alıyoruz
+        buttonDelete = findViewById(R.id.buttonDelete)
+        btnBack = findViewById(R.id.btnBack)
 
         val database = NoteDatabase.getDatabase(application)
         noteDao = database.noteDao()
@@ -34,22 +40,29 @@ class EditNoteActivity : AppCompatActivity() {
             loadNote()
         }
 
+        btnBack.setOnClickListener{
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+
         buttonSave.setOnClickListener {
             val title = editTextTitle.text.toString().trim()
             val content = editTextContent.text.toString().trim()
+            val tags = editTextTags.text.toString().trim()
 
             if (title.isNotEmpty() && content.isNotEmpty()) {
-                val updatedNote = Note(id = noteId, title = title, content = content)
+                val updatedNote = Note(id = noteId, title = title, content = content, tags = tags)
                 updateNote(updatedNote)
             } else {
-                // Kullanıcıya başlık ve içeriğin boş olmaması gerektiğini bildirebilirsiniz
+                Toast.makeText(application, "başlık ve içerik boş olamaz!!!", Toast.LENGTH_LONG).show()
             }
         }
 
-        buttonDelete.setOnClickListener { // Sil butonuna tıklama listener'ı ekliyoruz
+        buttonDelete.setOnClickListener {
             lifecycleScope.launch {
-                noteDao.delete(Note(id = noteId, title = "", content = "")) // Sadece ID'si yeterli
-                finish() // Silme işleminden sonra EditNoteActivity'yi kapat
+                noteDao.delete(Note(id = noteId, title = "", content = "", tags = ""))
+                finish()
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             }
         }
     }
@@ -60,6 +73,7 @@ class EditNoteActivity : AppCompatActivity() {
             note?.let {
                 editTextTitle.setText(it.title)
                 editTextContent.setText(it.content)
+                editTextTags.setText(it.tags)
             }
         }
     }
@@ -68,6 +82,7 @@ class EditNoteActivity : AppCompatActivity() {
         lifecycleScope.launch {
             noteDao.update(note)
             finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
     }
 }

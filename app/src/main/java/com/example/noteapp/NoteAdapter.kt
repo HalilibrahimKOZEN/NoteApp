@@ -15,6 +15,7 @@ class NoteAdapter(private val onItemClicked: (Note) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.textViewTitle)
         val contentTextView: TextView = itemView.findViewById(R.id.textViewContent)
+        val tagsTextView: TextView = itemView.findViewById(R.id.textViewTags)
         private var currentNote: Note? = null
 
         init {
@@ -29,13 +30,14 @@ class NoteAdapter(private val onItemClicked: (Note) -> Unit) :
             currentNote = note
             titleTextView.text = note.title
             contentTextView.text = note.content
+            tagsTextView.text = note.tags
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_view, parent, false)
-        return NoteViewHolder(itemView, onItemClicked) // Listener'ı ViewHolder'a iletiyoruz
+        return NoteViewHolder(itemView, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
