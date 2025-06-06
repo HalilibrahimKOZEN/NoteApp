@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Not Uygulaması</string>
+    <string name="title_hint">Başlık</string>
+    <string name="content_hint">İçerik</string>
+    <string name="tags_hint">Etiketler</string>
+    <string name="save">Kaydet</string>
+    <string name="update">Güncelle</string>
+    <string name="delete">Sil</string>
+    <string name="archive">Arşivle</string>
+    <string name="archive_menu">Arşiv</string>
+    <string name="archived_notes_title">Arşivlenmiş Notlar</string>
+    <string name="empty_notes">Henüz notunuz yok</string>
+    <string name="empty_notes_instruction">Yeni bir not eklemek için sağ alt köşedeki + butonuna tıklayın.</string>
+    <string name="empty_archived_notes">Arşivde notunuz yok</string>
+    <string name="search_hint">Notlarda Ara</string>
+    <string name="back">Geri</string>
+    <string name="color_selection_title">Renk Seç:</string>
+    <string name="share">Paylaş</string>
+    <string name="no_content_to_share">Paylaşılacak içerik yok.</string>
+</resources>

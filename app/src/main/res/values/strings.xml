@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">NoteApp</string>
+    <string name="app_name">Note App</string>
+    <string name="title_hint">Title</string>
+    <string name="content_hint">Content</string>
+    <string name="tags_hint">Tags</string>
+    <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="archive">Archive</string>
+    <string name="archive_menu">Archive</string>
+    <string name="archived_notes_title">Archived Notes</string>
+    <string name="empty_notes">You don\'t have any notes yet</string>
+    <string name="empty_notes_instruction">Click the + button at the bottom right to add a new note.</string>
+    <string name="empty_archived_notes">You don\'t have any archived notes</string>
+    <string name="search_hint">Search Notes</string>
+    <string name="back">Back</string>
+    <string name="color_selection_title">Pick a color:</string>
+    <string name="share">Share</string>
+    <string name="no_content_to_share">No content to share.</string>
 </resources>
