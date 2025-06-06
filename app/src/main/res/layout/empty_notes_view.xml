@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Henüz notunuz yok"
+        android:text="@string/empty_notes"
         android:textSize="18sp"
         android:textColor="#808080" />
 
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Yeni bir not eklemek için sağ alt köşedeki '+' butonuna tıklayın."
+        android:text="@string/empty_notes_instruction"
         android:textSize="14sp"
         android:textColor="#808080"
         android:gravity="center"
