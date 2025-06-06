@@ -18,7 +18,7 @@ interface NoteDao {
     @Delete
     suspend fun delete(note: Note)
 
-    @Query("SELECT * FROM notes ORDER BY id DESC")
+    @Query("SELECT * FROM notes WHERE isArchived = 0 ORDER BY id DESC")
     fun getAllNotes(): Flow<List<Note>>
 
     @Query("SELECT * FROM notes WHERE id = :id")
@@ -26,4 +26,13 @@ interface NoteDao {
 
     @Query("SELECT * FROM notes WHERE title LIKE '%' || :query || '%' OR content LIKE '%' || :query || '%' ORDER BY id DESC")
     fun searchNotes(query: String): Flow<List<Note>>
+
+    @Query("SELECT * FROM notes WHERE isArchived = 1 ORDER BY id DESC")
+    fun getAllArchivedNotes(): Flow<List<Note>>
+
+    @Update
+    suspend fun archiveNote(note: Note)
+
+    @Update
+    suspend fun unarchiveNote(note: Note)
 }
