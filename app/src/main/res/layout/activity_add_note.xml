@@ -16,7 +16,7 @@
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Başlık"
+        android:hint="@string/title_hint"
         android:inputType="text"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -28,7 +28,7 @@
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:gravity="top|start"
-        android:hint="İçerik"
+        android:hint="@string/content_hint"
         android:inputType="textMultiLine"
         android:textSize="16sp" />
 
@@ -37,9 +37,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Etiketler"
+        android:hint="@string/tags_hint"
         android:inputType="text"
         android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color_selection_title"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/colorPickerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <View
+            android:id="@+id/color_white"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_white"
+            android:layout_margin="4dp"/>
+        <View
+            android:id="@+id/color_red"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_red"
+            android:layout_margin="4dp"/>
+        <View
+            android:id="@+id/color_green"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_green"
+            android:layout_margin="4dp"/>
+        <View
+            android:id="@+id/color_blue"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_blue"
+            android:layout_margin="4dp"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonSave"
@@ -47,6 +89,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="16dp"
-        android:text="Kaydet" />
+        android:text="@string/save" />
 
 </LinearLayout>
